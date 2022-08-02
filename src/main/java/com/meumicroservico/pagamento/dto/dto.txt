@@ -1,0 +1,17 @@
+A classe DTO (DataTransfer Object)
+é uma classe que representa o retorno do controller
+ao usuário.
+
+Não é uma boa prática exibir um objeto do tipo da entidade
+ao usuário, porque podemos querer informar apenas alguns
+dados, e não todos.
+
+A DTO possuirá apenas os campos da Entidade que queremos mostrar
+ao usuário após a resposta do controller.
+
+Detalhes:
+ - Obviamente a DTO NÃO É UMA ENTIDADE, logo, não é persistida no banco;
+ - A serialização e deserialização é feita pela lib jackson, que já vem embutida no Spring Data JPA.
+        Essa deserialização/serialização será feita na DTO
+ - O ideal é que cada entidade tenha uma DTO
+ - As informações transitadas entre Entidade x DTO podem ser facilitadas usando a dependência ModelMappers. Recomendado usar para aumento de produtividade.
