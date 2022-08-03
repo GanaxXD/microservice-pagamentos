@@ -17,6 +17,7 @@ public class PagamentoService {
     @Autowired
     private PagamentoRepository pgRepository;
     
+    //Necessário instanciar a bean do ModelMapper em alguma classe com a anotação @Configuration (ver config/Configuracao.java)
     @Autowired
     private ModelMapper mapper;
     
