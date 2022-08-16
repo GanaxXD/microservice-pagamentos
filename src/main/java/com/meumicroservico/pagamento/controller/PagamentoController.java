@@ -3,6 +3,7 @@ package com.meumicroservico.pagamento.controller;
 import com.meumicroservico.pagamento.dto.PagamentoDto;
 import com.meumicroservico.pagamento.service.PagamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -20,6 +21,12 @@ public class PagamentoController {
     
     @Autowired
     private PagamentoService service;
+    
+    //Identificando a instância do Microsserviço nos casos de balanceamento de carga
+    @GetMapping("/porta")
+    public String retornaInstancia(@Value("${local.server.port}") String porta){
+        return String.format("Requisição respondida pela instância executando na porta $s", porta);
+    }
     
     @GetMapping
     public Page<PagamentoDto> listar(@PageableDefault(size = 10)Pageable paginacao){
