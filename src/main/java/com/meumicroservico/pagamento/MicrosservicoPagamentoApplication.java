@@ -3,6 +3,7 @@ package com.meumicroservico.pagamento;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /*
 Esse seria um cliente do Service Discovery, logo, todos os Microsservices
@@ -10,6 +11,7 @@ Esse seria um cliente do Service Discovery, logo, todos os Microsservices
  */
 @SpringBootApplication
 @EnableEurekaClient
+@EnableFeignClients
 public class MicrosservicoPagamentoApplication {
 
     public static void main(String[] args) {
