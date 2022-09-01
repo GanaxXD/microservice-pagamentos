@@ -90,4 +90,15 @@ public class PagamentoService {
         pgRepository.save(pagamento.get());
         pedido.atualizaPagamento(pagamento.get().getPedidoId());
     }
+    
+    public void alterarStatus(Long id) {
+        Optional<Pagamento> pagamento = pgRepository.findById(id);
+    
+        if (!pagamento.isPresent()) {
+            throw new EntityNotFoundException();
+        }
+    
+        pagamento.get().setStatus(Status.CONFIRMADO_SEM_INTEGRACAO);
+        pgRepository.save(pagamento.get());
+    }
 }
